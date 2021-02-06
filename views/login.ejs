@@ -1,0 +1,42 @@
+<%- include('header', {title: 'Login' }); -%>
+
+    <div class="row text-center h-100 w-100 d-flex justify-content-center vertical-align">
+        <div class="col-md-3 text-center my-auto">
+            <div class="card">
+                <article class="card-body">
+                    <h4 class="card-title mb-4 mt-1">Log in</h4>
+                    <form method="POST" action="/login">
+                        <div class="form-group">
+                            <label>Vas e-mail</label>
+                            <input name="email" class="form-control" placeholder="Email..." type="email" required velue="<%= flash.email ? flash.email : '' %>">
+                        </div>
+                        <div class="form-group">
+                            <label>Vasa lozinka</label>
+                            <input name="password" class="form-control" placeholder="******" type="password" required>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary btn-block w-50 mx-auto mt-5"> Login </button>
+                        </div>
+                    </form>
+                </article>
+            </div>
+            <% if (flash.poruka) { %>
+                <div class="alert alert-danger mt-2" role="alert">
+                    <%= flash.poruka %>
+                </div>
+                <% } %>
+                <% if (flash.obavestenje) { %>
+                    <div class="alert alert-success mt-2" role="alert">
+                        <%= flash.obavestenje %>
+                    </div>
+                <% } %>
+                <% if (flash.redirect) { %>
+                    <div class="alert alert-danger mt-5 mx-auto" role="alert">
+                        <%= flash.redirect %>
+                    </div>
+                <% } %>
+        </div>
+
+    </div>
+
+    <%- include('footer'); -%>

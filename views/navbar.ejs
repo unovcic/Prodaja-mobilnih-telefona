@@ -1,0 +1,38 @@
+<nav class="navbar navbar-expand-md navbar-light bg-dark">
+    <a class="navbar-brand" href="/" style="color: #fff !important;">Prodaja telefona</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/telefoni">Ponuda</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav">
+            <% if (!ulogovan) { %>
+                <li class="nav-item">
+                    <a class="nav-link" href="/login">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/register">Register</a>
+                </li>
+                <% } else { %>
+                    <li class="nav-item">
+                        <a class="nav-link mr-2 border" href="/telefoni/admin">Telefoni Panel</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mr-2" href="/users/">Profil</a>
+                    </li>
+                    <li class="nav-item">
+                        <form action="/logout" method="POST">
+                            <button type="submit" class="nav-link text-white"
+                                style="cursor:pointer; background-color:transparent; border:none;">
+                                Logout
+                            </button>
+                        </form>
+                    </li>
+                    <% } %>
+        </ul>
+    </div>
+</nav>

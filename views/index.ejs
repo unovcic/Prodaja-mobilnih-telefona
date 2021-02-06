@@ -1,0 +1,63 @@
+<%- include('header', {title: 'Pocetna' }); -%>
+
+    <div class="container">
+        <div class="mt-5">
+            <h1 class="display-3 text-center text-red">Dobrodosli na online prodaju mobilnih telefona</h1>
+
+            <div class="d-flex justify-content-between" style="margin-top: 9rem;">
+                <a href="/telefoni/" class="custom-card">
+                    <div class="card klas"
+                        style="width: 15rem; display: inline-block;border-radius: 9.25rem; background-color: #343A40;">
+                        <div class="card-body text-center">
+                            <i class="fas fa-mobile-alt" style="font-size:120px;"></i>
+                            <h5 class="card-title mt-3">Pogledajte nasu ponudu</h5>
+                        </div>
+                    </div>
+                </a>
+
+                <% if (ulogovan) { %>
+                    <a href="/telefoni/admin" class="custom-card">
+                        <div class="card klas"
+                            style="width: 15rem; display: inline-block;border-radius: 9.25rem; background-color: #343A40;">
+                            <div class="card-body text-center">
+                                <i class="fab fa-cpanel" style="font-size:120px;"></i>
+                                <h5 class="card-title mt-3">Panel za promene telefona</h5>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="/logout" class="custom-card">
+                        <div class="card klas"
+                            style="width: 15rem; display: inline-block;border-radius: 9.25rem; background-color: #343A40;">
+                            <div class="card-body text-center">
+                                <i class="fas fa-sign-out-alt" style="font-size:120px;"></i>
+                                <h5 class="card-title mt-3">Zelite da izadjete? Logout</h5>
+                            </div>
+                        </div>
+                    </a>
+                    <% } else { %>
+                        <a href="/login" class="custom-card">
+                            <div class="card klas"
+                                style="width: 15rem; display: inline-block;border-radius: 9.25rem; background-color: #343A40;">
+                                <div class="card-body text-center">
+                                    <i class="fas fa-sign-in-alt" style="font-size:120px;"></i>
+                                    <h5 class="card-title mt-3">Posedujete nalog? Login</h5>
+                                </div>
+                            </div>
+                        </a>
+
+                        <a href="/register" class="custom-card">
+                            <div class="card klas"
+                                style="width: 15rem; display: inline-block;border-radius: 9.25rem; background-color: #343A40;">
+                                <div class="card-body text-center">
+                                    <i class="fas fa-registered" style="font-size:120px;"></i>
+                                    <h5 class="card-title mt-3">Nemate nalog? Registrujte se</h5>
+                                </div>
+                            </div>
+                        </a>
+                        <% } %>
+
+            </div>
+        </div>
+    </div>
+
+    <%- include('footer'); -%>

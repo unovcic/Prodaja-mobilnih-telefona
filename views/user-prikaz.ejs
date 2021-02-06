@@ -1,0 +1,36 @@
+<%- include('header', {title: 'Profil:' + user.ime }); -%>
+
+    <div class="row text-center h-100 d-flex justify-content-center vertical-registracija w-100">
+        <div class="col-md-3 text-center my-auto">
+            <div class="card">
+                <article class="card-body">
+                    <h4 class="card-title mb-4 mt-1">Prikaz profila: <%= user.ime %>
+                    </h4>
+                    <div class="form-group">
+                        <label>Vas puno ime</label>
+                        <input name="ime" class="form-control" placeholder="Ime i prezime..." type="text" required
+                            value="<%= user.ime %>" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label>Vas broj telefona</label>
+                        <input name="telefon" class="form-control" placeholder="06*******" type="text" required
+                            value="<%= user.telefon %>" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label>Vas e-mail</label>
+                        <input name="email" class="form-control" placeholder="Email..." type="email" required
+                            value="<%= user.email %>" disabled>
+                    </div>
+                    <div class="form-group">
+                        <a href="/users/edit" class="btn btn-primary btn-block w-50 mx-auto mt-5">Izmeni</a>
+                    </div>
+                </article>
+            </div>
+            <% if (flash.poruka) { %>
+                <div class="alert alert-danger mt-2" role="alert">
+                    <%= flash.poruka %>
+                </div>
+                <% } %>
+        </div>
+    </div>
+    <%- include('footer'); -%>

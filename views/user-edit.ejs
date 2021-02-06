@@ -1,0 +1,42 @@
+<%- include('header', {title: 'Izmena profila' }); -%>
+
+    <div class="row text-center h-100 d-flex justify-content-center vertical-registracija w-100">
+        <div class="col-md-3 text-center my-auto">
+            <div class="card">
+                <article class="card-body">
+                    <h4 class="card-title mb-4 mt-1">Izmenite svoj profil</h4>
+                    <form method="POST" action="/users/">
+                        <div class="form-group">
+                            <label>Vas puno ime</label>
+                            <input name="ime" class="form-control" placeholder="Ime i prezime..." type="text" required
+                                value="<%= flash.ime ? flash.ime : user.ime %>">
+                        </div>
+                        <div class="form-group">
+                            <label>Vas broj telefona</label>
+                            <input name="telefon" class="form-control" placeholder="06*******" type="text" required
+                                value="<%= flash.telefon ? flash.telefon : user.telefon %>">
+                        </div>
+                        <div class="form-group">
+                            <label>Vas e-mail</label>
+                            <input name="email" class="form-control" placeholder="Email..." type="email" required
+                                value="<%= flash.email ? flash.email : user.email %>">
+                        </div>
+                        <div class="form-group">
+                            <label>Potvrdite akciju unosom lozinke</label>
+                            <input name="password" class="form-control" placeholder="*******" type="password" required>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary btn-block w-50 mx-auto mt-5"> Izmeni
+                            </button>
+                        </div>
+                    </form>
+                </article>
+            </div>
+            <% if (flash.poruka) { %>
+                <div class="alert alert-danger mt-2" role="alert">
+                    <%= flash.poruka %>
+                </div>
+                <% } %>
+        </div>
+    </div>
+    <%- include('footer'); -%>

@@ -1,0 +1,65 @@
+<%- include('header', {title: 'Telefoni' }); -%>
+
+    <div class="row justify-content-center mt-4">
+        <div class="col-md-8">
+            <div class="card">
+                <h1 class="display-4 text-center">Telefoni</h1>
+                <div class="d-flex justify-content-between">
+                    <a href="/telefoni/create" class="btn btn-success w-25 h-25 ml-4">Dodaj novi telefon</a>
+                    <% if (flash.uspeh) { %>
+                        <div class="alert alert-success mr-4 h-25" role="alert">
+                            <%= flash.uspeh %>
+                        </div>
+                        <% } %>
+                </div>
+                <div class="card-body">
+                    <table class="table">
+                        <thead class="thead-dark">
+                            <tr class="text-center">
+                                <th scope="col">Slika</th>
+                                <th scope="col">Marka</th>
+                                <th scope="col">Model</th>
+                                <th scope="col">Opis</th>
+                                <th scope="col">Cena</th>
+                                <th scope="col">Akcija</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% telefoni.forEach(telefon=> { %>
+                                <tr class="text-center">
+                                    <td scope="row"><a href="/telefoni/prikaz/<%= telefon.id %>"><img
+                                                src="<%= '/images/' + telefon.slika %>" width="100px"
+                                                height="100px"></a>
+                                    </td>
+                                    <td class="align-middle"><a href="/telefoni/prikaz/<%= telefon.id %>">
+                                            <%= telefon.marka %>
+                                        </a>
+                                    </td>
+                                    <td scope="row" class="align-middle">
+                                        <%= telefon.model %> </a>
+                                    <td scope="row" class="align-middle">
+                                        <%= telefon.opis %> </a>
+                                    <td scope="row" class="align-middle">
+                                        &euro;<%= telefon.cena %></a>
+                                    </td>
+                                    <td scope="row" class="align-middle">
+                                        <a href="/telefoni/edit/<%= telefon.id %>"
+                                            class="btn btn-primary mb-2">Promeni</a>
+
+                                        <form action="/telefoni/delete/<%= telefon.id %> " method="POST"
+                                            id="ukloniForma">
+                                            <button type="submit" id="ukloni" class="btn btn-danger">
+                                                Ukloni
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                                <% }) %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <%- include('footer'); -%>

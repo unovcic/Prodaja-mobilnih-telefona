@@ -1,0 +1,31 @@
+<%- include('header', {title: 'Telefoni' }); -%>
+
+    <div>
+        <h1 class="display-3 text-center mb-5" style="margin-top: 10rem; color: #fff; text-decoration: underline">
+            Telefoni u
+            nasoj ponudi
+        </h1>
+        <div style="width:80%; margin: auto; margin-bottom: 2rem !important;">
+            <% telefoni.forEach(telefon=> { %>
+                <div class="card mt-5 text-center ml-5 kartica"
+                    style="width: 18rem; border-radius:3rem; display: inline-block;">
+                    <img class="card-img-top" src="/images/<%= telefon.slika %> " width="100px" height="200px"
+                        style="border-radius:3rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <%= telefon.marka + ' ' + telefon.model %>
+                        </h5>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Cena: &euro;<%= telefon.cena %>
+                        </li>
+                    </ul>
+                    <div class="card-body">
+                        <a href="/telefoni/prikaz/<%= telefon.id %> " class="card-link">Detaljnije</a>
+                    </div>
+                </div>
+                <% }) %>
+        </div>
+    </div>
+
+<%- include('footer'); -%>

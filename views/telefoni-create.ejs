@@ -1,0 +1,47 @@
+<%- include('header', {title: 'Dodaj telefon' }); -%>
+
+    <div class="row text-center h-100 d-flex justify-content-center vertical-registracija w-100">
+        <div class="col-md-3 text-center my-auto">
+            <div class="card">
+                <article class="card-body">
+                    <h4 class="card-title mb-4 mt-1">Dodaj telefon</h4>
+                    <form method="POST" action="/telefoni/" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label>Marka telefona</label>
+                            <input name="marka" class="form-control" placeholder="Marka telefona..." type="text"
+                                required value="<%= flash.marka ? flash.marka : '' %>">
+                        </div>
+                        <div class="form-group">
+                            <label>Model telefona</label>
+                            <input name="model" class="form-control" placeholder="Model telefona..." type="text"
+                                required value="<%= flash.model ? flash.model : '' %>">
+                        </div>
+                        <div class="form-group">
+                            <label>Opis</label>
+                            <textarea class="form-control" name="opis" placeholder="Kratak opis..."
+                                required><%= flash.opis ? flash.opis : '' %></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Cena</label>
+                            <input name="cena" class="form-control" placeholder="Cena telefona..." type="number"
+                                required value="<%= flash.cena ? flash.cena : '' %>">
+                        </div>
+                        <div class="form-group">
+                            <label>Slika</label>
+                            <input type="file" name="slika" class="form-control-file mt-4">
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary btn-block w-50 mx-auto mt-5"> Dodaj
+                            </button>
+                        </div>
+                    </form>
+                </article>
+            </div>
+            <% if (flash.poruka) { %>
+                <div class="alert alert-danger mt-2" role="alert">
+                    <%= flash.poruka %>
+                </div>
+                <% } %>
+        </div>
+    </div>
+    <%- include('footer'); -%>
